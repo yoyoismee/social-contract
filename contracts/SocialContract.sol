@@ -63,7 +63,7 @@ contract SocialContract is Initializable, ContextUpgradeable {
         uint32[] memory shares_,
         uint32[] memory votingRight_,
         uint32[] memory nonVotingShare_,
-        uint32[] memory mixShare_,
+        uint32[] memory maxShare_,
         uint32[] memory minShare_
     ) public initializer {
         /// @dev eh, life too short for param validation. lol ez
@@ -79,7 +79,7 @@ contract SocialContract is Initializable, ContextUpgradeable {
                 shares_[i],
                 votingRight_[i],
                 nonVotingShare_[i],
-                mixShare_[i],
+                maxShare_[i],
                 minShare_[i]
             );
         }
@@ -234,7 +234,7 @@ contract SocialContract is Initializable, ContextUpgradeable {
         uint32 shares_,
         uint32 votingRight_,
         uint32 nonVotingShare_,
-        uint32 mixShare_,
+        uint32 maxShare_,
         uint32 minShare_
     ) private {
         /// @dev we allow burn. - simply assign share to address 0 <- not recommended. maybe send to yoyoismee.eth instate.
@@ -244,7 +244,7 @@ contract SocialContract is Initializable, ContextUpgradeable {
             share: shares_,
             votingRight: votingRight_,
             nonVotingShare: nonVotingShare_,
-            maxShare: mixShare_,
+            maxShare: maxShare_,
             minShare: minShare_
         });
 
@@ -256,7 +256,7 @@ contract SocialContract is Initializable, ContextUpgradeable {
             shares_,
             votingRight_,
             nonVotingShare_,
-            mixShare_,
+            maxShare_,
             minShare_
         );
     }
